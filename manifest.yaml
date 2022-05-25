@@ -1,0 +1,19 @@
+name: popularity-index-db
+group: gane01-popularity-index
+team: gane01
+containerPort: 8086
+telemetry:
+  liveness:
+    port: 3088
+    path: /health/live
+  readiness:
+    port: 3088
+    path: /health/ready
+environments:
+  test:
+    clusters:
+      - playground-igaming-test-euc1
+    expose:
+      outsideCluster:
+        internal:
+          asName: gane01    
